@@ -1,0 +1,18 @@
+
+steps:
+  # Step 1: Build React Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'asia-south2-docker.pkg.dev/react-gcp-training-trial/react-docker-repo/react-app:$BUILD_ID'
+      - '.'
+
+  # Step 2: Push image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'asia-south2-docker.pkg.dev/react-gcp-training-trial/react-docker-repo/react-app:$BUILD_ID'
+
+images:
+  - 'asia-south2-docker.pkg.dev/react-gcp-training-trial/react-docker-repo/react-app:$BUILD_ID'
