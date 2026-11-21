@@ -16,3 +16,7 @@ steps:
 
 images:
   - 'asia-south2-docker.pkg.dev/react-gcp-training-trial/react-docker-repo/react-app:$BUILD_ID'
+
+# Store logs in Google Cloud Logging
+options:
+  logging: CLOUD_LOGGING_ONLY
